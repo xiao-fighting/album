@@ -159,8 +159,8 @@ export default {
           }
         })
       })
-      .catch(() => {
-        // console.log(error)
+      .catch(error => {
+        console.log(error)
         alert('發生錯誤')
       })
   }
