@@ -176,6 +176,8 @@ app.post('/login', async (req, res) => {
       res.send({ success: false, message: '伺服器錯誤' })
     }
   }
+  
+  console.log(req.session.user)
 })
 
 app.delete('/logout', async (req, res) => {
@@ -269,6 +271,7 @@ app.post('/file', async (req, res) => {
 })
 
 app.get('/file/:name', async (req, res) => {
+  console.log(req.session.user)
   if (req.session.user === undefined) {
     res.status(401)
     res.send({ success: false, message: '未登入' })
