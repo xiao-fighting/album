@@ -21,7 +21,6 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cors({
   origin (origin, callback) {
-    // 直接開網頁的話==>不是 ajax 時，origin會是 undefined
     if (origin === undefined) {
       callback(null, true)
     } else {
@@ -176,8 +175,6 @@ app.post('/login', async (req, res) => {
       res.send({ success: false, message: '伺服器錯誤' })
     }
   }
-  
-  console.log(req.session.user)
 })
 
 app.delete('/logout', async (req, res) => {
@@ -271,7 +268,6 @@ app.post('/file', async (req, res) => {
 })
 
 app.get('/file/:name', async (req, res) => {
-  console.log(req.session.user)
   if (req.session.user === undefined) {
     res.status(401)
     res.send({ success: false, message: '未登入' })
