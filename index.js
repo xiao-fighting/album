@@ -163,6 +163,7 @@ app.post('/login', async (req, res) => {
       res.send({ success: false, message: '帳號密碼錯誤' })
     }
   } catch (error) {
+    console.log(error)
     if (error.name === 'ValidationError') {
       // 資料格式錯誤
       const key = Object.keys(error.errors)[0]
@@ -305,6 +306,7 @@ app.get('/album/:user', async (req, res) => {
     res.status(200)
     res.send({ success: true, message: '', result })
   } catch (error) {
+    console.log(error)
     res.status(500)
     res.send({ success: false, message: '伺服器錯誤' })
   }
