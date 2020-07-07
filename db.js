@@ -47,8 +47,8 @@ const fileSchema = new Schema({
   versionKey: false
 })
 // mongoose.model('資料表名稱', Schema)
-const users = mongoose.model('process.env.COLLECTION_USER', userSchema)
-const files = mongoose.model('process.env.COLLECTION_FILE', fileSchema)
+const users = mongoose.model(process.env.COLLECTION_USER, userSchema)
+const files = mongoose.model(process.env.COLLECTION_FILE, fileSchema)
 const connection = mongoose.connection
 
 export default {
